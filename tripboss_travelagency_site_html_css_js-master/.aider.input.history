@@ -144,3 +144,28 @@
 
 # 2025-04-10 14:47:43.094599
 +Y
+
+# 2025-04-10 14:53:06.007378
++/add css font images js contact.html index.html touristinfo.html .aider.chat.history.md
+
+# 2025-04-10 14:53:34.985043
++now something is wrong when i want to go to contact page This site cant be reached
++127.0.0.1 refused to connect
+
+# 2025-04-10 14:55:46.441257
++now all pages are not loading This site cant be reached
++127.0.0.1 refused to connect.This site cant be reached
++127.0.0.1 refused to connect.This site cant be reached
++127.0.0.1 refused to connect.
+
+# 2025-04-10 14:56:09.086420
++Y
+
+# 2025-04-10 14:56:09.087460
++/run python -m http.server
+
+# 2025-04-10 14:56:09.087460
++/run python -m http.server
+
+# 2025-04-10 14:57:31.579805
++you can view the changes we did previously in .aider.chat.history.md and solve this issue, previously all pages worked propperly
