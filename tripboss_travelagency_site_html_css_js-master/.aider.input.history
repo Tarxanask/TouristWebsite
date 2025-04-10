@@ -74,3 +74,73 @@
 
 # 2025-04-10 14:19:09.615783
 +can you change the title of the website to DanMorgan
+
+# 2025-04-10 14:41:31.674730
++ok, do not change now anything in our code, it looks good. iwant to host it in git hub pages but face this issue 404
++File not found
++
++The site configured at this address does not contain the requested file.
++
++If this is your site, make sure that the filename case matches the URL as well as any file permissions.
++For root URLs (like http://example.com/) you must provide an index.html file.
++
++Read the full documentation for more information about using GitHub Pages.
++
++GitHub Status  @githubstatus
+
+# 2025-04-10 14:41:34.076785
++NO
+
+# 2025-04-10 14:44:47.840756
++Y
+
+# 2025-04-10 14:44:47.842980
++/run ls -la # Lists all files and directories, including hidden ones, with detailed information
+
+# 2025-04-10 14:44:47.842980
++/run ls -la # Lists all files and directories, including hidden ones, with detailed information
+
+# 2025-04-10 14:44:48.678868
++/run cat index.html # Displays the content of your index.html file
+
+# 2025-04-10 14:44:48.678868
++/run cat index.html # Displays the content of your index.html file
+
+# 2025-04-10 14:44:51.276717
++Y
+
+# 2025-04-10 14:45:01.157039
++what now
+
+# 2025-04-10 14:47:20.476264
++i think we are using only 3 templates, touritsinfo.html contacts.html and gallery.html as the main page so you should remove all other templates which are unnecessary and rename one of the templates to index (may be gallery) so that i do not face that issue when i host in git hub pages if i am right 
+
+# 2025-04-10 14:47:38.173212
++Y
+
+# 2025-04-10 14:47:38.177988
++/run del about.html
+
+# 2025-04-10 14:47:38.178988
++/run del about.html
+
+# 2025-04-10 14:47:38.972393
++/run del blog.html
+
+# 2025-04-10 14:47:38.973376
++/run del blog.html
+
+# 2025-04-10 14:47:39.578932
++/run del index.html
+
+# 2025-04-10 14:47:39.578932
++/run del index.html
+
+# 2025-04-10 14:47:40.170453
++/run ren gallery.html index.html
+
+# 2025-04-10 14:47:40.170453
++/run ren gallery.html index.html
+
+# 2025-04-10 14:47:43.094599
++Y
