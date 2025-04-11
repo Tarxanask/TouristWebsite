@@ -21,7 +21,7 @@
         <!-- navbar  -->
         <nav class = "navbar">
             <div class = "container flex">
-                <a href = "index.html" class = "site-brand">
+                <a href = "#" class = "site-brand">
                     Dan<span>Morgan</span>
                 </a>
 
@@ -34,13 +34,13 @@
                     </button>
                     <ul class = "navbar-nav">
                         <li class = "nav-item">
-                            <a href = "gallery.html" class = "nav-link">Gallery</a>
+                            <a href = "#touristinfo" class = "nav-link">Tourist Info</a>
                         </li>
                         <li class = "nav-item">
-                            <a href = "touristinfo.html" class = "nav-link">Tourist Info</a>
+                            <a href = "#gallery" class = "nav-link">Gallery</a>
                         </li>
                         <li class = "nav-item">
-                            <a href = "contact.html" class = "nav-link">Contact</a>
+                            <a href = "#contact" class = "nav-link">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +49,7 @@
         <!-- end of navbar  -->
 
         <!-- header -->
-       <header class = "flex header-sm">
+        <header class = "flex header-sm">
             <div class = "container">
                 <div class = "header-title">
                     <h1>Daniel's Journeys</h1>
@@ -58,6 +58,31 @@
             </div>
         </header>
         <!-- header -->
+
+        <!-- about section -->
+        <section id = "touristinfo" class = "py-4">
+            <div class = "container">
+                <div class = "title-wrap">
+                    <span class = "sm-title">About Daniel Morgan</span>
+                    <h2 class = "lg-title">My Story</h2>
+                </div>
+
+                <div class = "about-row">
+                    <div class = "about-left my-2">
+                        <img src = "images/about-img.jpg" alt = "Daniel Morgan">
+                    </div>
+                    <div class = "about-right">
+                        <h2>Daniel Morgan, British Adventurer</h2>
+                        <p class = "text">Daniel Morgan, 28, is an adventurous solo traveler from London, UK, known for his passion for exploring diverse cultures and landscapes. Over the past five years, he has visited more than 20 countries across Europe, Asia, and South America.</p>
+                        <p class = "text">Daniel prefers authentic travel experiences – staying in local guesthouses, tasting traditional cuisine, and learning native languages. His most memorable journeys include hiking in the Peruvian Andes, exploring the ancient streets of Kyoto, Japan, and volunteering in rural villages in Vietnam.</p>
+                        <p class = "text">As a travel blogger and photographer, Daniel shares stories from his trips on social media and his website, inspiring young travelers to go beyond tourist hotspots and discover the real spirit of each country. </p>
+                        <p class = "text">His philosophy is: "Travel isn't about places – it's about people, moments, and memories that stay with you forever."</p>
+                        <p class = "text">Countries he visited recently: Italy, Spain, Peru, Japan, Vietnam, Turkey, Morocco.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of about section -->
 
         <!-- gallery section -->
         <div id = "gallery" class = "py-4">
@@ -122,6 +147,58 @@
         </div>
         <!-- end of gallery section -->
 
+        <!-- contact section -->
+        <section id = "contact" class = "py-4">
+            <div class = "container">
+                <div class = "title-wrap">
+                    <span class = "sm-title">get in touch with me</span>
+                    <h2 class = "lg-title">contact me</h2>
+                </div>
+
+                <div class = "contact-row">
+                    <div class = "contact-left">
+                        <form class = "contact-form">
+                            <input type = "text" class = "form-control" placeholder="Your name">
+                            <input type = "email" class = "form-control" placeholder="Your email">
+                            <textarea rows = "4" class = "form-control" id="message" placeholder="Your message" style = "resize: none;"></textarea>
+                            <button type = "submit" class = "btn" onclick="sendEmail()">Send message</button>
+                        </form>
+                        <div id="email-status"></div>
+                    </div>
+                    <div class = "contact-right my-2">
+                        <div class = "contact-item">
+                            <span class = "contact-icon flex">
+                                <i class = "fa fa-phone-alt"></i>
+                            </span>
+                            <div>
+                                <span>Phone</span>
+                                <p class = "text">+44 7456 123456</p>
+                            </div>
+                        </div>
+                        <div class = "contact-item">
+                            <span class = "contact-icon flex">
+                                <i class = "fa fa-map-marked-alt"></i>
+                            </span>
+                            <div>
+                                <span>Address</span>
+                                <p class = "text">27 Kingsway Street, London, UK</p>
+                            </div>
+                        </div>
+                        <div class = "contact-item">
+                            <span class = "contact-icon flex">
+                                <i class = "fa fa-envelope"></i>
+                            </span>
+                            <div>
+                                <span>Email</span>
+                                <p class = "text">terxanask@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of contact section -->
+
         <!-- img modal -->
         <div id = "img-modal-box">
             <div id = "img-modal">
@@ -184,7 +261,38 @@
 
             modalCloseBtn.addEventListener('click', () => {
                 imgModalDiv.style.display = "none";
-            })
+            });
+
+            function sendEmail() {
+                const name = document.querySelector('input[placeholder="Your name"]').value;
+                const email = document.querySelector('input[placeholder="Your email"]').value;
+                const message = document.getElementById('message').value;
+                const statusDiv = document.getElementById('email-status');
+
+                fetch('http://127.0.0.1:5000/send_email', {  // Replace with your backend URL if different
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        message: message
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Email sent successfully') {
+                        statusDiv.innerHTML = '<p style="color: green;">Email sent successfully!</p>';
+                    } else {
+                        statusDiv.innerHTML = '<p style="color: red;">Failed to send email.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    statusDiv.innerHTML = '<p style="color: red;">Failed to send email.</p>';
+                });
+            }
         </script>
     </body>
 </html>
